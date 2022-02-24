@@ -1,0 +1,27 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "backend of oblig 1",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Misthalin/idg2001-oblig1.git"
+  },
+  "author": "Kristian Wobbes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Misthalin/idg2001-oblig1/issues"
+  },
+  "homepage": "https://github.com/Misthalin/idg2001-oblig1#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
