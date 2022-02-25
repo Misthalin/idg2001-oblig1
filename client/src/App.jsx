@@ -59,6 +59,13 @@ const App = function () {
 				alert("Could not apply to course. Please try again");
 			});
 	}
+	/*
+	{students.map((student, index) => (
+							<li key={index}>
+								First name: {student.firstName} - Last name: {student.lastName}
+							</li>
+						))}
+	*/
 	return (
 		<>
 			<h1>Apply for a course</h1>
@@ -70,11 +77,7 @@ const App = function () {
 				<>
 					<h2>Applied Students</h2>
 					<ol>
-						{students.map((student, index) => (
-							<li key={index}>
-								First name: {student.firstName} - Last name: {student.lastName}
-							</li>
-						))}
+						
 					</ol>
 				</>
 			)}
