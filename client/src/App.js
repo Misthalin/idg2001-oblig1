@@ -77,7 +77,7 @@ const App = function () {
 				<>
 					<h2>Applied Students</h2>
 					<ol>
-						
+						{console.log(students)}
 					</ol>
 				</>
 			)}
