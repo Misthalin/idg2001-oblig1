@@ -11,11 +11,11 @@ const StudentSchema = new Schema({
       required: true
     },
     studentId: {
-      type: String,
+      type: Number,
       required: true
     },
     age: {
-      type: String,
+      type: Number,
       required: true
     },
     nationality: {
