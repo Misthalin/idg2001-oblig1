@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import './AppliedStudents.css'
 
 const AppliedStudents = function () {
     const [students, setStudents] = useState(null);
@@ -13,7 +14,6 @@ const AppliedStudents = function () {
 
     return (
 		<>
-			<h1>Course IDG 1362</h1>
 			{students === null ? (
 				<p>Loading...</p>
 			) : students.length === 0 ? (
@@ -22,7 +22,8 @@ const AppliedStudents = function () {
 						<>
 							<h2>Applied Students</h2>
 							{students.data.map((student, index) => (
-								<ul key={index}>
+                                <div key={index} className="student-card">
+								<ul>
 									<li>
 										First name: {student.firstName}
 									</li>
@@ -42,6 +43,9 @@ const AppliedStudents = function () {
 										Degree Programme: {student.degreeProgramme}
 									</li>
 								</ul>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                                </div>
 							))}
 						</>
 					)}

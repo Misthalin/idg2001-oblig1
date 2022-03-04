@@ -56,34 +56,34 @@ const FormSubmittion = function () {
             <input
                 onChange={(e) => setFirstName(e.target.value)}
                 type="text"
-                placeholder="Enter your first name"
+                placeholder="First name"
             />
             <input
                 onChange={(e) => setLastName(e.target.value)}
                 type="text"
-                placeholder="Enter your last name"
+                placeholder="Last name"
             />
             <input
                 onChange={(e) => setStudentId(e.target.value)}
                 type="text"
-                placeholder="Enter your student ID"
+                placeholder="Student ID"
             />
             <input
                 onChange={(e) => setAge(e.target.value)}
                 type="text"
-                placeholder="Enter your Age"
+                placeholder="Age"
             />
             <input
                 onChange={(e) => setNationality(e.target.value)}
                 type="text"
-                placeholder="Enter your nationality"
+                placeholder="Nationality"
             />
             <input
                 onChange={(e) => setDegreeProgramme(e.target.value)}
                 type="text"
-                placeholder="Enter your degree programme"
+                placeholder="Degree programme"
             />
-            <input type="submit" />
+            <input type="submit" value="Submit"/>
         </form>
     );
 }
