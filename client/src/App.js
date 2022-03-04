@@ -10,6 +10,7 @@ const App = function () {
 	const [age, setAge] = useState("");
 	const [nationality, setNationality] = useState("");
 	const [degreeProgramme, setDegreeProgramme] = useState("");
+	
 	useEffect(() => {
 		axios
 			.get("/api/students")
