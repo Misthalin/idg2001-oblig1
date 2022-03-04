@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
 const App = function () {
-  const [students, setStudents] = useState(null);
-  
+	const [students, setStudents] = useState(null);
+
 	const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [studentId, setStudentId] = useState("");
-  const [age, setAge] = useState("");
-  const [nationality, setNationality] = useState("");
-  const [degreeProgramme, setDegreeProgramme] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [studentId, setStudentId] = useState("");
+	const [age, setAge] = useState("");
+	const [nationality, setNationality] = useState("");
+	const [degreeProgramme, setDegreeProgramme] = useState("");
 	useEffect(() => {
 		axios
 			.get("/api/students")
@@ -25,31 +25,31 @@ const App = function () {
 		if (lastName === "") {
 			alert("Please enter your last name");
 			return;
-    }
-    if (studentId === "") {
+		}
+		if (studentId === "") {
 			alert("Please enter your student ID");
 			return;
-    }
-    if (age === "") {
+		}
+		if (age === "") {
 			alert("Please enter your age");
 			return;
-    }
-    if (nationality === "") {
+		}
+		if (nationality === "") {
 			alert("Please enter your nationality");
 			return;
-    }
-    if (degreeProgramme === "") {
+		}
+		if (degreeProgramme === "") {
 			alert("Please enter your degreeProgramme");
 			return;
 		}
 		axios
 			.post("/api/students", {
-        firstName: firstName,
-        lastName: lastName,
-        studentId: studentId,
-        age: age,
-        nationality: nationality,
-        degreeProgramme: degreeProgramme,
+				firstName: firstName,
+				lastName: lastName,
+				studentId: studentId,
+				age: age,
+				nationality: nationality,
+				degreeProgramme: degreeProgramme,
 			})
 			.then(function () {
 				alert("Student successfully applied to course");
@@ -59,28 +59,47 @@ const App = function () {
 				alert("Could not apply to course. Please try again");
 			});
 	}
-	/*
-	{students.map((student, index) => (
+
+	/*{students.data.map((student, index) => (
 							<li key={index}>
 								First name: {student.firstName} - Last name: {student.lastName}
 							</li>
-						))}
-	*/
+						))}*/
+
 	return (
 		<>
-			<h1>Apply for a course</h1>
+			<h1>Course IDG 1362</h1>
 			{students === null ? (
 				<p>Loading...</p>
 			) : students.length === 0 ? (
 				<p>No user available</p>
 			) : (
-				<>
-					<h2>Applied Students</h2>
-					<ol>
-						{console.log(students)}
-					</ol>
-				</>
-			)}
+						<>
+							<h2>Applied Students</h2>
+							{students.data.map((student, index) => (
+								<ul key={index}>
+									<li>
+										First name: {student.firstName}
+									</li>
+									<li>
+										Last name: {student.lastName}
+									</li>
+									<li>
+										Age: {student.age}
+									</li>
+									<li>
+										Student ID: {student.studentId}
+									</li>
+									<li>
+										Nationality: {student.nationality}
+									</li>
+									<li>
+										Degree Programme: {student.degreeProgramme}
+									</li>
+								</ul>
+							))}
+						</>
+					)}
 
 			<form onSubmit={submitForm}>
 				<input
@@ -93,22 +112,22 @@ const App = function () {
 					type="text"
 					placeholder="Enter your last name"
 				/>
-        <input
+				<input
 					onChange={(e) => setStudentId(e.target.value)}
 					type="text"
 					placeholder="Enter your student ID"
 				/>
-        <input
+				<input
 					onChange={(e) => setAge(e.target.value)}
 					type="text"
 					placeholder="Enter your Age"
 				/>
-        <input
+				<input
 					onChange={(e) => setNationality(e.target.value)}
 					type="text"
 					placeholder="Enter your nationality"
 				/>
-        <input
+				<input
 					onChange={(e) => setDegreeProgramme(e.target.value)}
 					type="text"
 					placeholder="Enter your degree programme"
