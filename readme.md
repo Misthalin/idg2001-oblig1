@@ -1,3 +1,5 @@
+## Changes to Master branch will Auto-deploy on https://course-registration-clouds.herokuapp.com/
+
 env file:
 
 NPM_CONFIG_LOGLEVEL=error
@@ -12,7 +14,6 @@ nodemon server/index.js
 
 run from client folder:
 nodemon start
-
 
 client runs on localhost:3000
 server runs on localhost:5050
