@@ -60,12 +60,6 @@ const App = function () {
 			});
 	}
 
-	/*{students.data.map((student, index) => (
-							<li key={index}>
-								First name: {student.firstName} - Last name: {student.lastName}
-							</li>
-						))}*/
-
 	return (
 		<>
 			<h1>Course IDG 1362</h1>
