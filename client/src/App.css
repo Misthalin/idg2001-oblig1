@@ -4,6 +4,11 @@ nav,
   text-align: center;
 }
 
+.form {
+  display: grid;
+  place-content: center;
+}
+
 .body-margin {
   margin: 0 2%;
 }
