@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import './FormSubmittion.css'
 
 const FormSubmittion = function () {
     const [firstName, setFirstName] = useState("");
@@ -57,8 +58,6 @@ const FormSubmittion = function () {
         } else {
             alert("Registration rejected.")
         }
-
-        
     }
 
     return (

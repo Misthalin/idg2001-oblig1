@@ -1,7 +1,14 @@
+h2,
+nav,
 .text-center {
   text-align: center;
 }
 
 .body-margin {
   margin: 0 2%;
+}
+
+nav {
+  border-bottom: solid 1px;
+  padding-bottom: 1rem;
 }
