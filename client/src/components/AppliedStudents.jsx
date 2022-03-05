@@ -14,8 +14,8 @@ const AppliedStudents = function () {
 	}, []);
 
 	return (
-		<div class="body-margin">
-		<h1 class="text-center">Applied Students</h1>
+		<div className="body-margin">
+		<h1 className="text-center">Applied Students</h1>
 		<Navigation />
 			{students === null ? (
 				<p>Loading...</p>
@@ -45,6 +45,9 @@ const AppliedStudents = function () {
 								</li>
 								<li>
 									Degree Programme: {student.degreeProgramme}
+								</li>
+								<li>
+									Date submitted:
 								</li>
 							</ul>
 							<button>Edit</button>

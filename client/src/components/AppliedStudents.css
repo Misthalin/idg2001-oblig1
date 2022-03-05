@@ -1,15 +1,22 @@
 .student-card {
     min-width: 300px;
-    background-color: lightgray;
-    border: solid 1px black;
+    border: solid 1px gray;
     margin: 0 auto;
-    
+    padding: 5px;
 }
 
 .student-card > button {
     width: 100%;
+    margin: 2px 0;
 }
 
+ul {
+    list-style-type: none;
+}
+
+ul * {
+    padding-bottom: 5px;
+}
 .container {
     
     display: grid;

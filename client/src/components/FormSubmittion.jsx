@@ -92,7 +92,7 @@ const FormSubmittion = function () {
                 type="text"
                 placeholder="Degree programme"
             />
-            <input type="submit" value="Submit"/>
+            <input type="submit" value="Submit" id="formSubmit"/>
         </form>
     );
 }
