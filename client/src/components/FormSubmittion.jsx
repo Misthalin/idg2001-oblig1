@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
+import './FormSubmittion.css'
 
 const FormSubmittion = function () {
     const [firstName, setFirstName] = useState("");
@@ -9,7 +10,7 @@ const FormSubmittion = function () {
     const [nationality, setNationality] = useState("");
     const [degreeProgramme, setDegreeProgramme] = useState("");
 
-    function submitForm() {
+    const submitForm = (e) => {
         if (firstName === "") {
             alert("Please enter your first name");
             return;
@@ -34,7 +35,11 @@ const FormSubmittion = function () {
             alert("Please enter your degreeProgramme");
             return;
         }
-        axios
+
+        e.preventDefault();
+        const answer = window.confirm("Are you sure you want to apply to IDG1362 User-centered design?");
+        if (answer) {
+            axios
             .post("/api/students", {
                 firstName: firstName,
                 lastName: lastName,
@@ -44,13 +49,17 @@ const FormSubmittion = function () {
                 degreeProgramme: degreeProgramme,
             })
             .then(function () {
-                alert("Student successfully applied to course");
+                alert("You have successfully applied to course IDG1362");
                 window.location.reload();
             })
             .catch(function () {
                 alert("Could not apply to course. Please try again");
             });
+        } else {
+            alert("Registration rejected.")
+        }
     }
+
     return (
         <form onSubmit={submitForm}>
             <input
