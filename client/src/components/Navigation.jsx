@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navigation = function () {
+const Navigation = () => {
     return (
         <nav>
             <Link to="/">Course Registration</Link> || {" "}
