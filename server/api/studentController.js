@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const Student = require('./studentModel');
 
 const getStudents = asyncHandler(async (req, res) => {
-    const students = await Student.find();
+    const students = await Student.find().sort({createdAt: 'desc'});
     res.status(200).json(students);
 })
 
