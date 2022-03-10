@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import moment from 'moment';
 import Navigation from "./Navigation";
 import "./AppliedStudents.css";
-//NEEDS TO BE ORDERED BY DATE SUBMITTED!
+
 const AppliedStudents = function () {
 	const [students, setStudents] = useState(null);
 
@@ -13,17 +14,24 @@ const AppliedStudents = function () {
 			.catch((err) => console.log(err));
 	}, []);
 
+	const onDelete = (id) => {
+		axios
+			.delete(`/api/students/${id}`)
+			.then(function () {
+				window.location.reload();
+			})
+	}
+
 	return (
 		<div className="body-margin">
-		<h1 className="text-center">Applied Students</h1>
-		<Navigation />
+			<h1 className="text-center">Applied Students</h1>
+			<Navigation />
 			{students === null ? (
 				<p>Loading...</p>
 			) : students.length === 0 ? (
 				<p>No user available</p>
 			) : (<>
 				<h2>Students Applied For IDG1362:</h2>
-				<p>REMEMBER TO IMPLEMENT: ORDER BY DATE OF SUBMITTION</p>
 				<div className="container">
 					{students.data.map((student, index) => (
 						<div key={index} className="student-card">
@@ -47,11 +55,11 @@ const AppliedStudents = function () {
 									Degree Programme: {student.degreeProgramme}
 								</li>
 								<li>
-									Date submitted:
+									Submitted: {moment(student.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
 								</li>
 							</ul>
 							<button>Edit</button>
-							<button>Delete</button>
+							<button onClick={() => onDelete(student._id)}>Delete</button>
 						</div>
 					))}
 				</div>

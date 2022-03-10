@@ -1,6 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import './FormSubmittion.css'
+
+/*function Register() {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        studentId: '',
+        age: '',
+        nationality: '',
+        degreeProgramme: ''
+    })
+
+    const {firstName, lastName, studentId, age, nationality, degreeProgramme} = formData
+
+    return (
+        <section className="form">
+            <form>
+                <input type="text"/>
+            </form>
+        </section>
+    );
+}*/
 
 const FormSubmittion = function () {
     const [firstName, setFirstName] = useState("");
@@ -96,5 +117,4 @@ const FormSubmittion = function () {
         </form>
     );
 }
-
 export default FormSubmittion;
