@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { render } from 'react-dom';
+import React from "react";
 import axios from "axios";
 import moment from 'moment';
 import Navigation from "./Navigation";
