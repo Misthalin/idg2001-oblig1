@@ -22,6 +22,7 @@ class EditStudent extends React.Component {
         this.editNationality = this.editNationality.bind(this);
         this.editDegreeProgramme = this.editDegreeProgramme.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.init = this.init.bind(this);
     }
 
     editFirstName = event => {
@@ -41,6 +42,11 @@ class EditStudent extends React.Component {
     }
     editDegreeProgramme = event => {
         this.setState({ degreeProgramme: event.target.value})
+    }
+
+    init(event){
+        console.log('t0: ' + Date.now())
+        this.handleSubmit(event);
     }
 
     handleSubmit = event => {
@@ -70,7 +76,8 @@ class EditStudent extends React.Component {
         }
         
         event.preventDefault();
-        const answer = window.confirm(`Are you sure you want to edit ${this.props.firstName}'s application?`);
+        const answer = true;
+        //const answer = window.confirm(`Are you sure you want to edit ${this.props.firstName}'s application?`);
         if (answer) {
             axios
             .put(`/api/students/${this.state._id}`, {
@@ -82,8 +89,9 @@ class EditStudent extends React.Component {
                 degreeProgramme: this.state.degreeProgramme,
             })
             .then(function () {
-                alert("The edit was successfull");
-                window.location.reload();
+                //alert("The edit was successfull");
+                //window.location.reload();
+                console.log('t3: ' + Date.now())
             })
             .catch(function () {
                 alert("Could not edit application. Please try again");
@@ -133,7 +141,7 @@ class EditStudent extends React.Component {
                         value={this.state.degreeProgramme}
                         onChange={this.editDegreeProgramme}
                     />
-                    <input type="submit" value="Submit" onClick={this.handleSubmit} />
+                    <input type="submit" value="Submit" onClick={this.init} />
                 </form>
             </>
         )
