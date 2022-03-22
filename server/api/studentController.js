@@ -27,6 +27,7 @@ const setStudent = asyncHandler(async (req, res) => {
 })
 
 const updateStudent = asyncHandler(async (req, res) => {
+    console.log('startWork t1: ' + Date.now())
     const student = await Student.findById(req.params.id)
 
     if(!student) {
@@ -37,6 +38,7 @@ const updateStudent = asyncHandler(async (req, res) => {
     const updatedStudent = await Student.findByIdAndUpdate(req.params.id, req.body, {new: true})
 
     res.status(200).json(updatedStudent)
+    console.log('startWork t2: ' + Date.now())
 })
 
 const deleteStudent = asyncHandler(async (req, res) => {
